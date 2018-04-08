@@ -211,10 +211,12 @@ notifications:
 - provider: Slack
   incoming_webhook: https://hooks.slack.com/services/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
   template: >-
-    <{{buildUrl}}|{{projectName}} {{buildVersion}} {{status}}>\n   
-    Commit <{{commitUrl}}|{{commitId}}> by {{commitAuthor}} on {{commitDate}}:\n
+    <{{buildUrl}}|{{projectName}} {{buildVersion}} {{status}}>
+    
+    Commit <{{commitUrl}}|{{commitId}}> by {{commitAuthor}} on {{commitDate}}:
+    
     Commit message: _{{commitMessage}}_
-    \n
+    
     Artifacts:\n
     {{#jobs}}
     {{#artifacts}}
