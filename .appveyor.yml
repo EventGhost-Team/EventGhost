@@ -217,14 +217,13 @@ notifications:
     
     Commit message: _{{commitMessage}}_
     
+    
     Artifacts:
     
-    {{#jobs}}
     {{#artifacts}}
     <{{permalink}}|{{name}}>
     
     {{/artifacts}}
-    {{/jobs}}
 
   on_build_success: true
   on_build_failure: true
