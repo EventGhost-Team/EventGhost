@@ -210,12 +210,12 @@ notifications:
     <{{buildUrl}}|Build {{projectName}} {{buildVersion}} {{status}}>
     Commit <{{commitUrl}}|{{commitId}}> by {{commitAuthor}} on {{commitDate}}:
     _{{commitMessage}}_
-
+    
     Artifacts:
     
     {{#jobs}}
     {{#artifacts}}
-    <{{url}}|{{name}}>
+    <{{permalink}}|{{name}}>
     
     {{/artifacts}}
     {{/jobs}}
