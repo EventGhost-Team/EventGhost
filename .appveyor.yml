@@ -152,7 +152,8 @@ install:
         .\EventGhost.exe -install
       }
       $setup_exe = gci -recurse -filter "_build\output\*Setup.exe" -name
-      Push-AppveyorArtifact "_build\output\$setup_exe"
+      Push-AppveyorArtifact "_build\output\$setup_exe" -FileName "$setup_exe" -DeploymentName "Installer"
+      Update-AppveyorBuild -Version "$setup_exe.Substring(11,20)_build_$APPVEYOR_BUILD_NUMBER"
       " "
 
       "=============== EventGhost build finished ==============="
