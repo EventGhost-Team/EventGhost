@@ -152,7 +152,7 @@ install:
         .\EventGhost.exe -install
       }
       $setup_exe = gci -recurse -filter "_build\output\*Setup.exe" -name
-      Push-AppveyorArtifact "_build\output\$setup_exe" -FileName "$setup_exe" -DeploymentName "Installer"
+      Push-AppveyorArtifact "_build\output\$setup_exe" -FileName "$setup_exe" -Verbosity "Quiet"
       $wip_version = $setup_exe.Substring(11,20)
       Update-AppveyorBuild -Version "$wip_version"
       " "
@@ -210,11 +210,11 @@ notifications:
 - provider: Slack
   incoming_webhook: https://hooks.slack.com/services/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
   template: >-
-    <{{buildUrl}}|Build {{projectName}} {{buildVersion}} {{status}}>
-    Commit <{{commitUrl}}|{{commitId}}> by {{commitAuthor}} on {{commitDate}}:
-    _{{commitMessage}}_
-    
-    Artifacts:
+    <{{buildUrl}}|{{projectName}} {{buildVersion}} {{status}}>\n   
+    Commit <{{commitUrl}}|{{commitId}}> by {{commitAuthor}} on {{commitDate}}:\n
+    Commit message: _{{commitMessage}}_
+    \n
+    Artifacts:\n
     {{#jobs}}
     {{#artifacts}}
     <{{permalink}}|{{name}}>
