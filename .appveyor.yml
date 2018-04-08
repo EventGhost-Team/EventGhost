@@ -160,7 +160,7 @@ install:
       Update-AppveyorBuild -Version "$build_version"
       
       # Make sure the appveyor cache is only saved if our build was successfull
-      If (-Not (Test-Path("_build\output\$Env:SetupExe"))) {$env:APPVEYOR_CACHE_SKIP_SAVE = "true"}
+      If (-Not (Test-Path(".\EventGhost.exe"))) {$env:APPVEYOR_CACHE_SKIP_SAVE = "true"}
       
       " "
 
