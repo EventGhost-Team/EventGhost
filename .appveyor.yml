@@ -211,6 +211,7 @@ notifications:
     _{{commitMessage}}_
 
     Artifacts:
+    
     {{#jobs}}
     {{#artifacts}}
     <{{url}}|{{name}}>
