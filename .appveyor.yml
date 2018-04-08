@@ -153,7 +153,8 @@ install:
       }
       $setup_exe = gci -recurse -filter "_build\output\*Setup.exe" -name
       Push-AppveyorArtifact "_build\output\$setup_exe" -FileName "$setup_exe" -DeploymentName "Installer"
-      Update-AppveyorBuild -Version "$setup_exe.Substring(11,20)_build_$APPVEYOR_BUILD_NUMBER"
+      $wip_version = $setup_exe.Substring(11,20)
+      Update-AppveyorBuild -Version "$wip_version"
       " "
 
       "=============== EventGhost build finished ==============="
@@ -214,7 +215,6 @@ notifications:
     _{{commitMessage}}_
     
     Artifacts:
-    
     {{#jobs}}
     {{#artifacts}}
     <{{permalink}}|{{name}}>
