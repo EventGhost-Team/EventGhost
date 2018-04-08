@@ -217,7 +217,8 @@ notifications:
     
     Commit message: _{{commitMessage}}_
     
-    Artifacts:\n
+    Artifacts:
+    
     {{#jobs}}
     {{#artifacts}}
     <{{permalink}}|{{name}}>
