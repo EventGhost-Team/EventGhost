@@ -197,7 +197,6 @@ notifications:
     {{#jobs}}
     {{#artifacts}}
     [{{name}}]({{permalink}})
-    
     {{/artifacts}}
     {{/jobs}}
 
@@ -205,6 +204,27 @@ notifications:
   on_build_failure: true
   on_build_status_changed: false
   
+- provider: Slack
+  incoming_webhook: https://hooks.slack.com/services/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
+  template: >-
+    Team EventGhost says:
+
+    <{{buildUrl}}|Build {{projectName}} {{buildVersion}} {{status}}>
+    Commit <{{commitUrl}}|{{commitId}}> by {{commitAuthor}} on {{commitDate}}:
+    _{{commitMessage}}_
+
+    Artifacts:
+    {{#jobs}}
+    {{#artifacts}}
+    <{{url}}|{{name}}>
+    {{/artifacts}}
+    {{/jobs}}
+
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
+
+
   
 #on_finish:
 #  # Enable Remotedesktop and pause the build execution
