@@ -220,10 +220,9 @@ notifications:
     
     Artifacts:
     
-    {{#artifacts}}
-    <{{permalink}}|{{name}}>
+    {{#jobs}}{{#artifacts}}<{{permalink}}|{{name}}>
     
-    {{/artifacts}}
+    {{/artifacts}}{{/jobs}}
 
   on_build_success: true
   on_build_failure: true
