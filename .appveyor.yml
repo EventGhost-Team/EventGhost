@@ -151,10 +151,10 @@ install:
         python "_build\Build.py" --build --package
       }
       .\EventGhost.exe -install
-      $env:setup_exe = gci -recurse -filter "_build\output\*Setup.exe" -name
-      $start = $env:setup_exe.IndexOf("_")
-      $length = $env:setup_exe.LastIndexOf("_") - $start
-      $build_version = $env:setup_exe.Substring($start + 1, $length - 1)
+      $Env:SetupExe = gci -recurse -filter "_build\output\*Setup.exe" -name
+      $start = $env:SetupExe.IndexOf("_")
+      $length = $env:SetupExe.LastIndexOf("_") - $start
+      $build_version = $env:SetupExe.Substring($start + 1, $length - 1)
       Update-AppveyorBuild -Version "$build_version"
       " "
 
@@ -178,8 +178,8 @@ build:
 
 
 artifacts:
-  - path: _build\output\$(setup_exe)
-    name: $(setup_exe)
+  - path: _build\output\$(SetupExe)
+    name: $(SetupExe)
   - path: _build\output\Build.log
     name: Build.log
   - path: _build\output\CHANGELOG.md
