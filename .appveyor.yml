@@ -209,7 +209,8 @@ notifications:
   on_build_status_changed: false
   
 - provider: Slack
-  incoming_webhook: https://hooks.slack.com/services/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
+  incoming_webhook:
+    secure: zPiK2rYygiEg02e6GNJPYPw4G7sa0tvT14AwzYPVdNTZGPOfBBvlD632p+mI+3Qw+iWvfeYCnMBf2onwaZGv4KwEj0sQsO6Xg/32Br9xVm0=
   template: >-
     <{{buildUrl}}|{{projectName}} {{buildVersion}} {{status}}>
     
